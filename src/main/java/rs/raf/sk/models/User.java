@@ -19,9 +19,10 @@ public class User {
     @Basic
     @Column(name = "email")
     private String email;
+    // ONLY "admin", "client" OR "manager"
     @Basic
     @Column(name = "type")
-    private Object type;
+    private String type;
     @Basic
     @Column(name = "active")
     private boolean active;
@@ -79,11 +80,11 @@ public class User {
         this.email = email;
     }
 
-    public Object getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Object type) {
+    public void setType(String type) {
         this.type = type;
     }
 

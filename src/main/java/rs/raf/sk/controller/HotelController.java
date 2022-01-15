@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import rs.raf.sk.dto.HotelDto;
 import rs.raf.sk.service.HotelService;
 
-@RequestMapping("/api/hotel")
+@RequestMapping("/hotel")
 @RestController
 @Slf4j
 public class HotelController {
@@ -40,7 +40,7 @@ public class HotelController {
     }
 
     @GetMapping("/page-query")
-    public ResponseEntity<Page<HotelDto>> pageQuery(HotelDto hotelDto, @PageableDefault(sort = "createAt", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<Page<HotelDto>> pageQuery(HotelDto hotelDto, @PageableDefault(/*sort = "createAt", direction = Sort.Direction.DESC*/) Pageable pageable) {
         Page<HotelDto> hotelPage = hotelService.findByCondition(hotelDto, pageable);
         return ResponseEntity.ok(hotelPage);
     }

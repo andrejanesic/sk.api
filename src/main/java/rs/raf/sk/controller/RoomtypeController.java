@@ -40,7 +40,7 @@ public class RoomtypeController {
     }
 
     @GetMapping("/page-query")
-    public ResponseEntity<Page<RoomtypeDto>> pageQuery(RoomtypeDto roomtypeDto, @PageableDefault(sort = "createAt", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<Page<RoomtypeDto>> pageQuery(RoomtypeDto roomtypeDto, @PageableDefault(/*sort = "createAt", direction = Sort.Direction.DESC*/) Pageable pageable) {
         Page<RoomtypeDto> roomtypePage = roomtypeService.findByCondition(roomtypeDto, pageable);
         return ResponseEntity.ok(roomtypePage);
     }

@@ -29,6 +29,8 @@ public class UserService {
 
     public UserDto save(UserDto userDto) {
         User entity = userMapper.toEntity(userDto);
+        if (!entity.getType().equals("admin") && !entity.getType().equals("client") && !entity.getType().equals("manager"))
+            return null;
         return userMapper.toDto(repository.save(entity));
     }
 

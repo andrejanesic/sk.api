@@ -40,7 +40,7 @@ public class ListingController {
     }
 
     @GetMapping("/page-query")
-    public ResponseEntity<Page<ListingDto>> pageQuery(ListingDto listingDto, @PageableDefault(sort = "createAt", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<Page<ListingDto>> pageQuery(ListingDto listingDto, @PageableDefault(/*sort = "createAt", direction = Sort.Direction.DESC*/) Pageable pageable) {
         Page<ListingDto> listingPage = listingService.findByCondition(listingDto, pageable);
         return ResponseEntity.ok(listingPage);
     }

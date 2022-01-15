@@ -12,9 +12,10 @@ public class Rank {
     @Basic
     @Column(name = "name")
     private String name;
+    // ONLY "less" OR "more"
     @Basic
     @Column(name = "criteria")
-    private Object criteria;
+    private String criteria;
     @Basic
     @Column(name = "value")
     private String value;
@@ -38,11 +39,11 @@ public class Rank {
         this.name = name;
     }
 
-    public Object getCriteria() {
+    public String getCriteria() {
         return criteria;
     }
 
-    public void setCriteria(Object criteria) {
+    public void setCriteria(String criteria) {
         this.criteria = criteria;
     }
 

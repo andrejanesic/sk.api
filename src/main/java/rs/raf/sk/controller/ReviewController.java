@@ -1,8 +1,7 @@
 package rs.raf.sk.controller;
 
-import com.sun.tools.javac.util.DefinedBy.Api;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -10,13 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import rs.raf.sk.dto.ReviewDto;
-import rs.raf.sk.mapper.ReviewMapper;
-import rs.raf.sk.models.Review;
 import rs.raf.sk.service.ReviewService;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequestMapping("/review")
 @RestController
@@ -47,7 +40,7 @@ public class ReviewController {
     }
 
     @GetMapping("/page-query")
-    public ResponseEntity<Page<ReviewDto>> pageQuery(ReviewDto reviewDto, @PageableDefault(sort = "createAt", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<Page<ReviewDto>> pageQuery(ReviewDto reviewDto, @PageableDefault(/*sort = "createAt", direction = Sort.Direction.DESC*/) Pageable pageable) {
         Page<ReviewDto> reviewPage = reviewService.findByCondition(reviewDto, pageable);
         return ResponseEntity.ok(reviewPage);
     }

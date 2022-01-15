@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/page-query")
-    public ResponseEntity<Page<UserDto>> pageQuery(UserDto userDto, @PageableDefault(sort = "createAt", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<Page<UserDto>> pageQuery(UserDto userDto, @PageableDefault(/*sort = "createAt", direction = Sort.Direction.DESC*/) Pageable pageable) {
         Page<UserDto> userPage = userService.findByCondition(userDto, pageable);
         return ResponseEntity.ok(userPage);
     }

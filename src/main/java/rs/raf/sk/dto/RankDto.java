@@ -4,7 +4,7 @@ public class RankDto extends AbstractDto<Integer> {
 
     private int idrank;
     private String name;
-    private Object criteria;
+    private String criteria;
     private String value;
     private int discount;
 
@@ -27,11 +27,11 @@ public class RankDto extends AbstractDto<Integer> {
         return this.name;
     }
 
-    public void setCriteria(Object criteria) {
+    public void setCriteria(String criteria) {
         this.criteria = criteria;
     }
 
-    public Object getCriteria() {
+    public String getCriteria() {
         return this.criteria;
     }
 

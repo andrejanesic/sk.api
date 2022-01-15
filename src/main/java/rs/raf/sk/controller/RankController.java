@@ -40,7 +40,7 @@ public class RankController {
     }
 
     @GetMapping("/page-query")
-    public ResponseEntity<Page<RankDto>> pageQuery(RankDto rankDto, @PageableDefault(sort = "createAt", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<Page<RankDto>> pageQuery(RankDto rankDto, @PageableDefault(/*sort = "createAt", direction = Sort.Direction.DESC*/) Pageable pageable) {
         Page<RankDto> rankPage = rankService.findByCondition(rankDto, pageable);
         return ResponseEntity.ok(rankPage);
     }

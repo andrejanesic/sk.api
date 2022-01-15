@@ -8,8 +8,8 @@ public class UserDto extends AbstractDto<Integer> {
     private String username;
     private String password;
     private String email;
-    private Object type;
-    private boolean enabled;
+    private String type;
+    private boolean active;
     private String phone;
     private Date birthdate;
     private String firstname;
@@ -53,11 +53,11 @@ public class UserDto extends AbstractDto<Integer> {
         return this.email;
     }
 
-    public void setType(Object type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public Object getType() {
+    public String getType() {
         return this.type;
     }
 
@@ -117,11 +117,11 @@ public class UserDto extends AbstractDto<Integer> {
         return this.hotelIdhotel;
     }
 
-    public boolean isEnabled() {
-        return enabled;
+    public boolean getActive() {
+        return active;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

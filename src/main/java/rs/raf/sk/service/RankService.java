@@ -29,6 +29,8 @@ public class RankService {
 
     public RankDto save(RankDto rankDto) {
         Rank entity = rankMapper.toEntity(rankDto);
+        if (!entity.getCriteria().equals("less") && !entity.getCriteria().equals("more"))
+            return null;
         return rankMapper.toDto(repository.save(entity));
     }
 
