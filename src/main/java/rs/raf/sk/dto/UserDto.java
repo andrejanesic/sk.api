@@ -9,6 +9,7 @@ public class UserDto extends AbstractDto<Integer> {
     private String password;
     private String email;
     private Object type;
+    private boolean enabled;
     private String phone;
     private Date birthdate;
     private String firstname;
@@ -114,5 +115,13 @@ public class UserDto extends AbstractDto<Integer> {
 
     public Integer getHotelIdhotel() {
         return this.hotelIdhotel;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

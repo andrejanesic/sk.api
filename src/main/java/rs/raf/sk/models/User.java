@@ -23,6 +23,9 @@ public class User {
     @Column(name = "type")
     private Object type;
     @Basic
+    @Column(name = "active")
+    private boolean active;
+    @Basic
     @Column(name = "phone")
     private String phone;
     @Basic
@@ -140,6 +143,14 @@ public class User {
         this.hotelIdhotel = hotelIdhotel;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -151,6 +162,7 @@ public class User {
         if (username != null ? !username.equals(user.username) : user.username != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
+        if (active != user.active) return false;
         if (type != null ? !type.equals(user.type) : user.type != null) return false;
         if (phone != null ? !phone.equals(user.phone) : user.phone != null) return false;
         if (birthdate != null ? !birthdate.equals(user.birthdate) : user.birthdate != null) return false;
@@ -170,6 +182,7 @@ public class User {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (active ? 31 : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (birthdate != null ? birthdate.hashCode() : 0);
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
